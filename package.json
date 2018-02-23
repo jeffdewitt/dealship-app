@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "author": "",
   "license": "ISC",
@@ -12,7 +14,6 @@
     "cross-env": "^5.0.1",
     "firebase": "^4.7.0",
     "history": "^4.7.2",
-    "immutable": "^3.8.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-modal": "^2.4.1",
