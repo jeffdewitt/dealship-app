@@ -1,8 +1,8 @@
-
 export const CARS = [
   {
     '_id': '59d2698c2eaefb1268b69ee5',
     'make': 'Chevy',
+    'model': 'Bolt',
     'year': 2016,
     'color': 'Gray',
     'price': 16106,
@@ -16,6 +16,7 @@ export const CARS = [
   {
     '_id': '59d2698c05889e0b23959106',
     'make': 'Toyota',
+    'model': 'Corolla',
     'year': 2012,
     'color': 'Silver',
     'price': 18696,
@@ -28,7 +29,8 @@ export const CARS = [
   },
   {
     '_id': '59d2698c6f1dc2cbec89c413',
-    'make': 'Mercedes',
+    'make': 'Mercedes-Benz',
+    'model': 'S-Class',
     'year': 2016,
     'color': 'Black',
     'price': 18390,
@@ -42,6 +44,7 @@ export const CARS = [
   {
     '_id': '59d2698c340f2728382c0a73',
     'make': 'Toyota',
+    'model': 'Corolla',
     'year': 2015,
     'color': 'White',
     'price': 15895,
@@ -55,6 +58,7 @@ export const CARS = [
   {
     '_id': '59d2698cba9b82c2347cd13a',
     'make': 'Ford',
+    'model': 'F150',
     'year': 2014,
     'color': 'Gray',
     'price': 19710,
@@ -68,6 +72,7 @@ export const CARS = [
   {
     '_id': '59d2698ce2e7eeeb4f109001',
     'make': 'Toyota',
+    'model': 'Camry',
     'year': 2014,
     'color': 'Red',
     'price': 19248,
@@ -81,6 +86,7 @@ export const CARS = [
   {
     '_id': '59d2698cd6a3b8f0dd994c9d',
     'make': 'Toyota',
+    'model': 'RAV4',
     'year': 2015,
     'color': 'Black',
     'price': 13170,
@@ -93,7 +99,8 @@ export const CARS = [
   },
   {
     '_id': '59d2698c86ab54cee8acdc7b',
-    'make': 'Mercedes',
+    'make': 'Mercedes-Benz',
+    'model': 'CLA-Class',
     'year': 2013,
     'color': 'Gray',
     'price': 15669,
@@ -107,6 +114,7 @@ export const CARS = [
   {
     '_id': '59d2698cda9e8d39476c678a',
     'make': 'Toyota',
+    'model': 'RAV4',
     'year': 2015,
     'color': 'White',
     'price': 16629,
