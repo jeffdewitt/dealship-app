@@ -1,0 +1,30 @@
+.featureCheckbox {
+  padding: 5px;
+}
+
+.highlight {
+  background-color: lightblue;
+}
+
+.featureCheckbox:not(:first-child) {
+  border-left: 1px solid black ;
+}
+
+.carsOptions div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.carsOptions {
+  margin-bottom: 10px;
+}
+
+.carOptions label {
+  margin-left: 3px;
+}
+
+.optionType {
+  padding: 5px;
+  width: 20%;
+  text-align: center;
+}

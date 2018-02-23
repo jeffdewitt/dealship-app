@@ -21,8 +21,7 @@ const config = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.css$/, loader: 'style-loader!css-loader?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]' },
-      { test: /\.(png|jpg|gif)$/, loader: 'file-loader?name=img/img-[hash:6].[ext]' }
+      { test: /\.css$/, loader: 'style-loader!css-loader?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]' }
     ]
   },
   resolve: {

@@ -27,11 +27,11 @@ export function toggleWantFourWheel () {
 
 export function toggleReqPowerWindows () {
   return {
-    type: types.TOGGLE_REQ_POWER_RWINDOWS
+    type: types.TOGGLE_REQ_POWER_WINDOWS
   }
 }
 
-export function toggleQantPowerWindows () {
+export function toggleWantPowerWindows () {
   return {
     type: types.TOGGLE_WANT_POWER_WINDOWS
   }

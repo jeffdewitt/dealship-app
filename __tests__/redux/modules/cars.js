@@ -253,7 +253,32 @@ describe('cars reducer', () => {
     })
   })
 
-  it('should handle TOGGLE_WANT_HEATED_SEATS', () => {
+  it('should handle TOGGLE_WANT_LOW_MILAGE', () => {
+    const specialState = {
+      ...defaultState,
+      reqFeatures: {
+        ...defaultState.wantFeatures,
+        hasLowMiles: true
+      }
+    }
+    expect(
+      carsReducer(specialState, {
+        type: types.TOGGLE_WANT_LOW_MILAGE
+      })
+    ).toEqual({
+      ...defaultState,
+      wantFeatures: {
+        ...defaultState.wantFeatures,
+        hasLowMiles: true
+      },
+      reqFeatures: {
+        ...defaultState.reqFeatures,
+        hasLowMiles: false
+      }
+    })
+  })
+
+  it('should handle TOGGLE_REQ_HEATED_SEATS', () => {
     const specialState = {
       ...defaultState,
       reqFeatures: {
@@ -263,17 +288,17 @@ describe('cars reducer', () => {
     }
     expect(
       carsReducer(specialState, {
-        type: types.TOGGLE_WANT_HEATED_SEATS
+        type: types.TOGGLE_WANT_REQ_SEATS
       })
     ).toEqual({
       ...defaultState,
       wantFeatures: {
         ...defaultState.wantFeatures,
-        hasHeatedSeats: true
+        hasHeatedSeats: false
       },
       reqFeatures: {
         ...defaultState.reqFeatures,
-        hasHeatedSeats: false
+        hasHeatedSeats: true
       }
     })
   })

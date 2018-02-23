@@ -14,10 +14,27 @@ class CarsContainer extends React.Component {
   }
 
   render () {
+    const cars = this.props.cars.filter((car) => {
+      for (const feature in this.props.reqFeatures) {
+        if (this.props.reqFeatures[feature] && !car[feature]) { return false }
+      }
+
+      let hasOptional = false
+
+      for (const feature in this.props.wantFeatures) {
+        if (this.props.wantFeatures[feature]) {
+          hasOptional = true
+          if (car[feature]) { return true }
+        }
+      }
+
+      return !hasOptional
+    })
+
     return (
       <div className={carsContainer}>
         <CarsOptions {...this.props}/>
-        <CarsList cars={this.props.cars}/>
+        <CarsList cars={cars}/>
       </div>
     )
   }
