@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { CarsContainer } from 'containers'
-import { mainContainer } from './styles.css'
+import { mainContainer } from '../../sharedStyles/styles.css'
 
 class MainContainer extends React.Component {
   render () {

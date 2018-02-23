@@ -1,4 +1,12 @@
+.optionsText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .featureCheckbox {
+  composes: optionsText;
+  font-size: 10px;
   padding: 5px;
 }
 
@@ -19,12 +27,21 @@
   margin-bottom: 10px;
 }
 
-.carOptions label {
-  margin-left: 3px;
+.featureCheckbox label {
+  margin: 0 0 0 3px;
+}
+
+.featureCheckbox select,
+.featureCheckbox input {
+  margin-left: 5px;
 }
 
 .optionType {
+  composes: optionsText;
   padding: 5px;
-  width: 20%;
-  text-align: center;
+  width: 16%;
+}
+
+.optionsContainer {
+  justify-content: center;
 }

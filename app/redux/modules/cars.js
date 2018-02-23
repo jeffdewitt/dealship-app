@@ -73,6 +73,58 @@ export function toggleWantLowMilage () {
   }
 }
 
+export function toggleReqColor () {
+  return {
+    type: types.TOGGLE_REQ_COLOR
+  }
+}
+
+export function toggleWantColor () {
+  return {
+    type: types.TOGGLE_WANT_COLOR
+  }
+}
+
+export function updateReqColor (color) {
+  return {
+    type: types.UPDATE_REQ_COLOR,
+    color
+  }
+}
+
+export function updateWantColor (color) {
+  return {
+    type: types.UPDATE_WANT_COLOR,
+    color
+  }
+}
+
+export function toggleReqPrice () {
+  return {
+    type: types.TOGGLE_REQ_PRICE
+  }
+}
+
+export function toggleWantPrice () {
+  return {
+    type: types.TOGGLE_WANT_PRICE
+  }
+}
+
+export function updateReqPrice (price) {
+  return {
+    type: types.UPDATE_REQ_PRICE,
+    price: parseInt(price)
+  }
+}
+
+export function updateWantPrice (price) {
+  return {
+    type: types.UPDATE_WANT_PRICE,
+    price: parseInt(price)
+  }
+}
+
 const initialState = {
   cars: CARS,
   reqFeatures: {
@@ -81,7 +133,9 @@ const initialState = {
     hasLowMiles: false,
     hasPowerWindows: false,
     hasNavigation: false,
-    hasHeatedSeats: false
+    hasHeatedSeats: false,
+    hasColor: false,
+    hasPrice: false
   },
   wantFeatures: {
     hasSunroof: false,
@@ -89,8 +143,14 @@ const initialState = {
     hasLowMiles: false,
     hasPowerWindows: false,
     hasNavigation: false,
-    hasHeatedSeats: false
-  }
+    hasHeatedSeats: false,
+    hasColor: false,
+    hasPrice: false
+  },
+  reqColor: 'Black',
+  wantColor: 'Black',
+  reqPrice: 15000,
+  wantPrice: 15000
 }
 
 export default function cars (state = initialState, action) {
@@ -238,6 +298,74 @@ export default function cars (state = initialState, action) {
           ...state.wantFeatures,
           hasLowMiles: !state.wantFeatures.hasLowMiles
         }
+      }
+    case types.TOGGLE_REQ_COLOR :
+      return {
+        ...state,
+        reqFeatures: {
+          ...state.reqFeatures,
+          hasColor: !state.reqFeatures.hasColor
+        },
+        wantFeatures: {
+          ...state.wantFeatures,
+          hasColor: false
+        }
+      }
+    case types.TOGGLE_WANT_COLOR :
+      return {
+        ...state,
+        reqFeatures: {
+          ...state.reqFeatures,
+          hasColor: false
+        },
+        wantFeatures: {
+          ...state.wantFeatures,
+          hasColor: !state.wantFeatures.hasColor
+        }
+      }
+    case types.UPDATE_REQ_COLOR :
+      return {
+        ...state,
+        reqColor: action.color
+      }
+    case types.UPDATE_WANT_COLOR :
+      return {
+        ...state,
+        wantColor: action.color
+      }
+    case types.TOGGLE_REQ_PRICE :
+      return {
+        ...state,
+        reqFeatures: {
+          ...state.reqFeatures,
+          hasPrice: !state.reqFeatures.hasPrice
+        },
+        wantFeatures: {
+          ...state.wantFeatures,
+          hasPrice: false
+        }
+      }
+    case types.TOGGLE_WANT_PRICE :
+      return {
+        ...state,
+        reqFeatures: {
+          ...state.reqFeatures,
+          hasPrice: false
+        },
+        wantFeatures: {
+          ...state.wantFeatures,
+          hasPrice: !state.wantFeatures.hasPrice
+        }
+      }
+    case types.UPDATE_REQ_PRICE :
+      return {
+        ...state,
+        reqPrice: action.price
+      }
+    case types.UPDATE_WANT_PRICE :
+      return {
+        ...state,
+        wantPrice: action.price
       }
     default :
       return state

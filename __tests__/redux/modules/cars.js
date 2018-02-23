@@ -11,7 +11,9 @@ const defaultState = {
     hasLowMiles: false,
     hasPowerWindows: false,
     hasNavigation: false,
-    hasHeatedSeats: false
+    hasHeatedSeats: false,
+    hasColor: false,
+    hasPrice: false
   },
   wantFeatures: {
     hasSunroof: false,
@@ -19,8 +21,14 @@ const defaultState = {
     hasLowMiles: false,
     hasPowerWindows: false,
     hasNavigation: false,
-    hasHeatedSeats: false
-  }
+    hasHeatedSeats: false,
+    hasColor: false,
+    hasPrice: false
+  },
+  reqColor: 'Black',
+  wantColor: 'Black',
+  reqPrice: 15000,
+  wantPrice: 15000
 }
 
 describe('cars reducer', () => {
@@ -325,6 +333,154 @@ describe('cars reducer', () => {
         ...defaultState.reqFeatures,
         hasHeatedSeats: false
       }
+    })
+  })
+
+  it('should handle TOGGLE_REQ_COLOR', () => {
+    const specialState = {
+      ...defaultState,
+      wantFeatures: {
+        ...defaultState.reqFeatures,
+        hasColor: true
+      }
+    }
+    expect(
+      carsReducer(specialState, {
+        type: types.TOGGLE_REQ_COLOR
+      })
+    ).toEqual({
+      ...defaultState,
+      wantFeatures: {
+        ...defaultState.wantFeatures,
+        hasColor: false
+      },
+      reqFeatures: {
+        ...defaultState.reqFeatures,
+        hasColor: true
+      }
+    })
+  })
+
+  it('should handle TOGGLE_WANT_COLOR', () => {
+    const specialState = {
+      ...defaultState,
+      reqFeatures: {
+        ...defaultState.reqFeatures,
+        hasColor: true
+      }
+    }
+    expect(
+      carsReducer(specialState, {
+        type: types.TOGGLE_WANT_COLOR
+      })
+    ).toEqual({
+      ...defaultState,
+      wantFeatures: {
+        ...defaultState.wantFeatures,
+        hasColor: true
+      },
+      reqFeatures: {
+        ...defaultState.reqFeatures,
+        hasColor: false
+      }
+    })
+  })
+
+  it('should handle UPDATE_REQ_COLOR', () => {
+    expect(
+      carsReducer(defaultState, {
+        type: types.UPDATE_REQ_COLOR,
+        color: 'White'
+      })
+    ).toEqual({
+      ...defaultState,
+      reqColor: 'White'
+    })
+  })
+
+  it('should handle UPDATE_WANT_COLOR', () => {
+    expect(
+      carsReducer(defaultState, {
+        type: types.UPDATE_WANT_COLOR,
+        color: 'White'
+      })
+    ).toEqual({
+      ...defaultState,
+      wantColor: 'White'
+    })
+  })
+
+  it('should handle TOGGLE_REQ_PRICE', () => {
+    const specialState = {
+      ...defaultState,
+      wantFeatures: {
+        ...defaultState.reqFeatures,
+        hasPrice: true
+      }
+    }
+    expect(
+      carsReducer(specialState, {
+        type: types.TOGGLE_REQ_PRICE
+      })
+    ).toEqual({
+      ...defaultState,
+      wantFeatures: {
+        ...defaultState.wantFeatures,
+        hasPrice: false
+      },
+      reqFeatures: {
+        ...defaultState.reqFeatures,
+        hasPrice: true
+      }
+    })
+  })
+
+  it('should handle TOGGLE_WANT_PRICE', () => {
+    const specialState = {
+      ...defaultState,
+      reqFeatures: {
+        ...defaultState.reqFeatures,
+        hasPrice: true
+      }
+    }
+    expect(
+      carsReducer(specialState, {
+        type: types.TOGGLE_WANT_PRICE
+      })
+    ).toEqual({
+      ...defaultState,
+      wantFeatures: {
+        ...defaultState.wantFeatures,
+        hasPrice: true
+      },
+      reqFeatures: {
+        ...defaultState.reqFeatures,
+        hasPrice: false
+      }
+    })
+  })
+
+  it('should handle UPDATE_REQ_PRICE', () => {
+    expect(
+      carsReducer(defaultState, {
+        type: types.UPDATE_REQ_PRICE,
+        price: 9001
+      })
+    ).toEqual({
+      ...defaultState,
+      reqPrice: 9001
+    })
+  })
+
+  it('should handle UPDATE_WANT_PRICE', () => {
+    expect(
+      carsReducer(defaultState, {
+        type: types.UPDATE_WANT_PRICE,
+        price: 9001
+      })
+    ).toEqual({
+      ...defaultState,
+      wantPrice: 9001
     })
   })
 })
